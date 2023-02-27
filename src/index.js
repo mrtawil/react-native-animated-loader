@@ -58,7 +58,7 @@ export default class AnimatedLoader extends React.PureComponent {
   };
 
   render() {
-    const { visible, overlayColor, animationType } = this.props;
+    const { visible, overlayColor, animationType, containerStyle } = this.props;
 
     return (
       <Modal
