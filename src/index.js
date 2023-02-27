@@ -11,6 +11,7 @@ export default class AnimatedLoader extends React.PureComponent {
     animationType: 'none',
     source: require('./loader.json'),
     animationStyle: {},
+    containerStyle: {},
     speed: 1,
     loop: true,
   };
@@ -21,6 +22,7 @@ export default class AnimatedLoader extends React.PureComponent {
     animationType: PropTypes.oneOf(['none', 'slide', 'fade']),
     source: PropTypes.object,
     animationStyle: ViewPropTypes.style,
+    containerStyle: ViewPropTypes.style,
     speed: PropTypes.number,
     loop: PropTypes.bool,
   };
@@ -66,7 +68,7 @@ export default class AnimatedLoader extends React.PureComponent {
         supportedOrientations={['portrait']}
         onRequestClose={() => {}}
       >
-        <View style={[styles.container, { backgroundColor: overlayColor }]}>
+        <View style={[styles.container, containerStyle, { backgroundColor: overlayColor }]}>
           <View>{this._renderLottie()}</View>
           {this.props.children}
         </View>
